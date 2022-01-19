@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.dao.Mapper">
+
+    <resultMap id="UserMap" type="News">
+        <result column="idx" property="idx"/>
+        <result column="title" property="title"/>
+        <result column="time" property="time"/>
+        <result column="url" property="url"/>
+
+    </resultMap>
+    <select id="getNewsList" parameterType="map" resultType="News" resultMap="UserMap">
+        select * from news order by time desc limit #{startIndex} , #{pageSize};
+    </select>
+
+
+</mapper>
